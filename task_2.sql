@@ -1,26 +1,25 @@
 -- task_2.sql
 
--- Use the database
 USE alx_book_store;
 
 -- Authors table
-CREATE TABLE IF NOT EXISTS AUTHORS (
+CREATE TABLE IF NOT EXISTS Authors (
     author_id INT AUTO_INCREMENT PRIMARY KEY,
     author_name VARCHAR(215) NOT NULL
 );
 
 -- Books table
-CREATE TABLE IF NOT EXISTS BOOKS (
+CREATE TABLE IF NOT EXISTS Books (
     book_id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(130) NOT NULL,
     author_id INT NOT NULL,
     price DOUBLE,
     publication_date DATE,
-    FOREIGN KEY (author_id) REFERENCES AUTHORS(author_id)
+    FOREIGN KEY (author_id) REFERENCES Authors(author_id)
 );
 
 -- Customers table
-CREATE TABLE IF NOT EXISTS CUSTOMERS (
+CREATE TABLE IF NOT EXISTS Customers (
     customer_id INT AUTO_INCREMENT PRIMARY KEY,
     customer_name VARCHAR(215) NOT NULL,
     email VARCHAR(215),
@@ -28,19 +27,5 @@ CREATE TABLE IF NOT EXISTS CUSTOMERS (
 );
 
 -- Orders table
-CREATE TABLE IF NOT EXISTS ORDERS (
-    order_id INT AUTO_INCREMENT PRIMARY KEY,
-    customer_id INT NOT NULL,
-    order_date DATE,
-    FOREIGN KEY (customer_id) REFERENCES CUSTOMERS(customer_id)
-);
-
--- Order_Details table
-CREATE TABLE IF NOT EXISTS ORDER_DETAILS (
-    orderdetailid INT AUTO_INCREMENT PRIMARY KEY,
-    order_id INT NOT NULL,
-    book_id INT NOT NULL,
-    quantity DOUBLE,
-    FOREIGN KEY (order_id) REFERENCES ORDERS(order_id),
-    FOREIGN KEY (book_id) REFERENCES BOOKS(book_id)
-);
+CREATE TABLE IF NOT EXISTS Orders (
+    order_id INT AUT_
